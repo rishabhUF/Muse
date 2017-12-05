@@ -1,7 +1,9 @@
 = image_tag @post.image.url(:medium)
 %p= @post.title
 %p= @post.user.name
-
+%p= @post.description
+= link_to "Like", like_post_path(@post), method: :get
+= link_to "DisLike", dislike_post_path(@post), method: :get
 #comment
 	%h2.comment_count= pluralize(@post.comments.count, "Comment")
 	- @comments.each do |comment|
